@@ -1,0 +1,3 @@
+#!/bin/sh
+
+amixer sget Master | awk '/Mono:/ {$0=gensub(/.*\[(.*?%)].*(on|off).*/, "\\1 \\2","");print}'
