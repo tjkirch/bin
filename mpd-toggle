@@ -1,9 +1,7 @@
 #!/bin/sh
 
-MPC="mpc -h /var/lib/mpd/socket"
-
-if [ -z "$(${MPC} current)" ]; then
-   ${MPC} play >/dev/null
+if [ -z "$(ncmpcpp --now-playing)" ]; then
+   ncmpcpp play >/dev/null
 else
-   ${MPC} stop >/dev/null
+   ncmpcpp stop >/dev/null
 fi
