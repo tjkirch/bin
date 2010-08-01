@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Pipe conky to dzen, suitable for 1680x1050 on i3 WM
+
+conky | dzen2 -x 196 -y 1031 -w 1484 -h 19 -e - -bg black
