@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Prints whether pulseaudio is currently using onboard sound or external DAC
+
+which pacmd >/dev/null 2>&1 || exit 42
+
+# Strings by which we find external DAC vs. onboard sound
+ONBOARDSTR="pci-"
+DACSTR="DAC-"
+
+# This makes the assumption that you only care about one sink,
+# so it just pulls the first one it finds.
+sink="$(
+   pacmd list-sink-inputs \
+   | grep sink: \
+   | head -n1 \
+   | awk '{print $3}' \
+   | tr -d '<>'
+)"
+
+if echo "${sink}" | fgrep -q "${DACSTR}"; then
+   echo dac
+else
+   echo onboard
+fi

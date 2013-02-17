@@ -10,6 +10,7 @@ ONBOARDSTR="pci-"
 DACSTR="DAC-"
 
 which pacmd >/dev/null 2>&1 || exit 42
+which pulse-output >/dev/null 2>&1 || exit 42
 
 ONBOARD="$(pacmd list-sinks | awk "/^\s*name:.*${ONBOARDSTR}/ {print \$2}" | tr -d '<>')"
 DAC="$(pacmd list-sinks | awk "/^\s*name:.*${DACSTR}/ {print \$2}" | tr -d '<>')"
@@ -25,16 +26,10 @@ set_sink() {
    | xargs -n1 -I'{}' pacmd move-sink-input '{}' ${sink} >/dev/null
 }
 
-# This makes the assumption that you only care about one sink,
-# so it just pulls the first one it finds.
-current_sink() {
-   pacmd list-sink-inputs | grep sink: | head -n1 | awk '{print $3}' | tr -d '<>'
-}
-
 swap_current() {
-   local cur="$(current_sink)"
+   local cur="$(pulse-output)"
 
-   if echo "${cur}" | fgrep -q "${DACSTR}"; then
+   if [ "${cur}" = "dac" ]; then
       set_sink "${ONBOARD}"
    else
       set_sink "${DAC}"
