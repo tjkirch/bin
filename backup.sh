@@ -17,7 +17,6 @@ BACKUP_MOUNT="/mnt/backup"
 BACKUP_MOUNT_OPTIONS="-t ntfs"
 BACKUP_PATH="/mnt/backup/linux"
 BACKUP_EXCLUSIONS="/.backup-exclude"
-MOUNTED=0
 
 # Check for errors
 if [ "${USER}" != "root" ]; then
