@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TRACKBALL_DECEL="2.5"
+TRACKBALL_DECEL="2.9"
 TRACKBALL_ACCEL="2/1"
 
 # find the trackball's xinput ID
