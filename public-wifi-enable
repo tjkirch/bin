@@ -1,0 +1,10 @@
+#!/bin/bash -ex
+
+INTERFACE="wlp2s0"
+
+AP="${1:?}"
+
+wlan-enable
+sudo ip link set "${INTERFACE}" up
+sudo iw dev "${INTERFACE}" connect -w "${AP}"
+sudo dhcpcd "${INTERFACE}"
