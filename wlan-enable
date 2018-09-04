@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 current="$(rfkill --output SOFT -n -r)"
 # shellcheck disable=SC2181
