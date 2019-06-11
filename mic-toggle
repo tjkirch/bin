@@ -1,11 +1,6 @@
 #!/bin/sh
 
-MIC="Internal Mic Boost"
+###MIC="Internal Mic Boost"
+MIC="Capture"
 
-current="$(amixer get "$MIC" | awk '/Front Left:/ {print $3}')"
-
-if [ "$current" -gt 0 ]; then
-   amixer sset "$MIC" 0
-else
-   amixer sset "$MIC" 100
-fi
+amixer set "$MIC" toggle
