@@ -6,7 +6,7 @@
 
 # Strings by which we find external DAC vs. onboard sound
 ONBOARDSTR="pci-"
-DACSTR="DAC-"
+DACSTR="usb-"
 
 # This makes the assumption that you only care about one sink,
 # so it just pulls the first one it finds.
