@@ -1,7 +1,7 @@
 #!/bin/bash
 
 command="${1:?Must specify command: status, enable, disable, or toggle}"
-device="${2:-Yubico Yubikey 4 OTP+U2F}"
+device="${2:-Yubico YubiKey OTP+FIDO+CCID}"
 
 status() {
    xinput list-props "${device}" | grep "Device Enabled" | awk '{print $NF}'
