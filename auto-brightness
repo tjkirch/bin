@@ -24,7 +24,8 @@ SET_BACKLIGHT="${XBACKLIGHT} -set"
 export DISPLAY=":0.0"
 
 CURRENT="$(${GET_BACKLIGHT})"
-CURRENT="${CURRENT%.000000}"
+# Remove anything after decimal, don't need that precision
+CURRENT="${CURRENT//.*/}"
 
 # AC power
 if on_ac_power; then
