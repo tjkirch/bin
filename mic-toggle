@@ -1,6 +1,0 @@
-#!/bin/sh
-
-###MIC="Internal Mic Boost"
-MIC="Capture"
-
-amixer set "$MIC" toggle

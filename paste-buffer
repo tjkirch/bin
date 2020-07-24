@@ -1,4 +1,0 @@
-#!/bin/sh
-
-exec urxvtc -title 'Vim paste' \
-   -e vim -c 'set paste | exe "normal \"*PG" | set nopaste nomodified'
