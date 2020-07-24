@@ -1,5 +1,0 @@
-#!/bin/sh
-
-pgrep -x physlock >/dev/null || /usr/bin/physlock -m -d
-
-zzz
